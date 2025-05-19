@@ -13,6 +13,7 @@ steps:
 
 - script: |
     FILES=$(find . -name "*.vmdk")
+    echo "Path to fille: $FILES"
     echo "##vso[task.setvariable variable=vmdk_image_path]$FILES"
   displayName: 'Get vmdk'
   
