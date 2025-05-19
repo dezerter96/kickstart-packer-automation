@@ -1,0 +1,11 @@
+trigger:
+- none
+
+pool:
+  name: lab
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: packer build vm.pkr.hcl
