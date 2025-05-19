@@ -9,3 +9,16 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: packer build vm.pkr.hcl
+  displayName: 'Build Image'
+
+- script: |
+    FILES=$(find . -name "*.vmdk")
+    echo "##vso[task.setvariable variable=vmdk_image_path]$FILES"
+  displayName: 'Get vmdk'
+  
+- script: | 
+    terraform providers
+    terraform init
+    terraform plan
+    terraform apply -auto-approve -var="vmdk_image_path=$(vmdk_image_path)"
+  displayName: 'Run Terraform'
