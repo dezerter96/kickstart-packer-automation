@@ -1,7 +1,8 @@
 terraform {
   required_providers {
     virtualbox = {
-      source = "pyToshka/virtualbox"
+      source  = "terra-farm/virtualbox"
+      version = "0.2.2-alpha.1"
     }
   }
 }
