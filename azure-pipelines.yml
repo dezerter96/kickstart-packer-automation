@@ -18,9 +18,9 @@ steps:
   displayName: 'Get vmdk'
   
 - script: |
-    echo $(vmdk_image_path)
+    echo "VMDK path: $(vmdk_image_path)"
     terraform providers
     terraform init
-    terraform plan
+    terraform plan -var="vmdk_image_path=$(vmdk_image_path)
     terraform apply -auto-approve -var="vmdk_image_path=$(vmdk_image_path)"
   displayName: 'Run Terraform'
