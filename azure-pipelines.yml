@@ -22,5 +22,5 @@ steps:
     terraform providers
     terraform init
     terraform plan -var="vmdk_image_path=$(vmdk_image_path)" -out=plan.tfplan
-    terraform apply -auto-approve plan.tfplan -var="vmdk_image_path=$(vmdk_image_path)"  
+    terraform apply -auto-approve plan.tfplan 
   displayName: 'Run Terraform'
