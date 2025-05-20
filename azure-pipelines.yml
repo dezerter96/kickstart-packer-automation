@@ -18,7 +18,7 @@ steps:
   displayName: 'Get vmdk'
   
 - script: |
-    echo "VMDK path: $(vmdk_image_path)"
+    echo "VMDK path: $(ovf_image_path)"
     terraform providers
     terraform init
     terraform plan -var="vmdk_image_path=$(ovf_image_path)" -out=plan.tfplan
