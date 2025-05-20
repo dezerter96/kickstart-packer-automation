@@ -7,14 +7,14 @@ terraform {
   }
 }
 
-variable "vmdk_image_path" {
+variable "ovf_image_path" {
   description = "Ścieżka do pliku .vmdk"
   type        = string
 }
 
 resource "virtualbox_vm" "rocky_linux_vm" {
   name           = "RockyLinuxVM"
-  image          = var.vmdk_image_path
+  image          = var.ovf_image_path
   cpus           = 2
   memory         = "2048 mib"
   network_adapter {
