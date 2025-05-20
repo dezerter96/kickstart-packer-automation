@@ -12,15 +12,15 @@ steps:
   displayName: 'Build Image'
 
 - script: |
-    FILES=$(find . -name "*.vmdk")
+    FILES=$(find . -name "*.ovf")
     echo "Path to fille: $FILES"
-    echo "##vso[task.setvariable variable=vmdk_image_path]$FILES"
+    echo "##vso[task.setvariable variable=ovf_image_path]$FILES"
   displayName: 'Get vmdk'
   
 - script: |
     echo "VMDK path: $(vmdk_image_path)"
     terraform providers
     terraform init
-    terraform plan -var="vmdk_image_path=$(vmdk_image_path)" -out=plan.tfplan
+    terraform plan -var="vmdk_image_path=$(ovf_image_path)" -out=plan.tfplan
     terraform apply -auto-approve plan.tfplan 
   displayName: 'Run Terraform'
