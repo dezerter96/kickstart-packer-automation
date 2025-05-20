@@ -11,6 +11,10 @@ source "virtualbox-iso" "rocky_linux" {
   iso_url                 = "/home/dexter/Dokumenty/iso/Rocky-9.4-x86_64-minimal.iso"
   iso_checksum            = "sha256:ee3ac97fdffab58652421941599902012179c37535aece76824673105169c4a2"
   headless                = true
+  format = "ovf"
+  export_opts = [
+    "--ovf20",  
+    "--manifest"
   guest_os_type           = "RedHat_64"
   ssh_username            = "root"
   ssh_password            = "server"
