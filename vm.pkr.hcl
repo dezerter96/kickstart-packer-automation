@@ -15,6 +15,7 @@ source "virtualbox-iso" "rocky_linux" {
   export_opts = [
     "--ovf20",  
     "--manifest"
+  ]
   guest_os_type           = "RedHat_64"
   ssh_username            = "root"
   ssh_password            = "server"
