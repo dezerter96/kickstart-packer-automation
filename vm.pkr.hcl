@@ -21,7 +21,7 @@ source "virtualbox-iso" "rocky_linux" {
   ssh_timeout             = "1500s"
   cpus                    = 2
   memory                  = 2048
-  disk_size               = 20000
+  disk_size               = 30000
   hard_drive_interface    = "sata"
   guest_additions_mode    = "attach"
   guest_additions_url     = "file:///usr/share/virtualbox/VBoxGuestAdditions.iso"
