@@ -31,3 +31,14 @@ The **variables.pkr.hcl** file contains definitions of the required Packer plugi
 
 ##password_generator.py
 The **password_generator.py** script is used to generate a hashed password using the crypt function. The user is prompted to enter a plain-text password, which is then hashed using the SHA-512 algorithm with a high number of rounds (656,000) to enhance security 🔒. The output is a hashed password in a format compatible with Linux system standards, suitable for use in configuration files for automatic user and password setup. Such a hashed password format is required in Kickstart files for secure and unattended password configuration during system installation 🖥️⚙️. This script simplifies the secure preparation of passwords for installation or system automation tasks.
+
+# Azure Pipelines Configuration 🚀
+This **azure-pipelines.yml** file defines a pipeline in Azure DevOps that automates building a Rocky Linux image and publishing it as a Vagrant box.  
+trigger: none — The pipeline does not run automatically on commits or changes; it requires manual triggering ⏯️  
+pool: lab — Jobs run on an agent from the "lab" agent pool 🖥️  
+variables: — Uses a variable group named "Packer" defined in Azure DevOps 🔧  
+
+steps:
+- The first step initializes Packer and builds the image, passing the ssh_password variable from the variable group to the build process 🛠️
+- The second step adds the generated VirtualBox image as a local Vagrant box 📦
+- This pipeline enables automated creation and management of Rocky Linux virtual machine images using Packer and Vagrant within an Azure DevOps environment.
