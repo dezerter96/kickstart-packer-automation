@@ -1,20 +1,30 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# 🚀 Introduction 
+This is a clone of the Azure DevOps repository.  
+This repository is configured to build a virtual machine image that will be deployed in VirtualBox.
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+# 🚩 Getting Started
+The goal of this project is to use the Azure DevOps platform to create a virtual machine image for VirtualBox.
+Due to the limited infrastructure (home computer), the project is designed to use the smallest possible hardware resources to enable learning DevOps technologies.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Tools used for the project:
+- Azure DevOps
+- Packer
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+# 🔨 Build
+##ks.cfg
+The ks.cfg file is a Kickstart script that automates the installation of Rocky Linux with predefined settings. Here's a brief description of its contents:
+- Installation from the CDROM in text mode
+- Localization settings: Polish language, keyboard layout, and Europe/Warsaw timezone
+- User configuration: root user with an encrypted password, creation of a user named "automation" with an encrypted password and passwordless sudo access
+- Automatic network configuration using DHCP
+- Disk partitioning with EFI, boot, LVM for system and home, and swap partitions
+- Installation of minimal environment and development packages
+- Addition of the EPEL repository
+- Post-installation mounts the VirtualBox Guest Additions ISO and installs the additions
+- Adds DNS entries to /etc/hosts
+- Sets up an SSH key for the "automation" user
+- Automatic reboot after installation completes
+This is a complete and automated installation script with full configuration of network, users, disks, and additional tools for use in a VirtualBox environment.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+##variables.pkr.hcl
+The **variables.pkr.hcl** file contains definitions of the required Packer plugins for VirtualBox and Vagrant, as well as detailed configuration for building a Rocky Linux image from an ISO image. This file specifies, among other things, virtual machine parameters (e.g., number of CPUs, RAM, disk size), SSH configuration, how to launch the Kickstart installation, and exporting the finished image to a Vagrant-compatible format. This file allows you to automate the process of preparing Rocky Linux virtual machines.
