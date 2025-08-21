@@ -9,11 +9,6 @@ variables:
 
 steps:
 - script: |
-    echo Hello, world!
-    echo $(ssh_root_password)
-  displayName: 'Run a one-line script'
-
-- script: |
     packer init .
     packer build -var "ssh_password=$(ssh_root_password)" .
   displayName: 'Build Image'
