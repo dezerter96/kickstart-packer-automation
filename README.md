@@ -28,3 +28,6 @@ This is a complete and automated installation script with full configuration of 
 
 ##variables.pkr.hcl
 The **variables.pkr.hcl** file contains definitions of the required Packer plugins for VirtualBox and Vagrant, as well as detailed configuration for building a Rocky Linux image from an ISO image. This file specifies, among other things, virtual machine parameters (e.g., number of CPUs, RAM, disk size), SSH configuration, how to launch the Kickstart installation, and exporting the finished image to a Vagrant-compatible format. This file allows you to automate the process of preparing Rocky Linux virtual machines.
+
+##password_generator.py
+The **password_generator.py** script is used to generate a hashed password using the crypt function. The user is prompted to enter a plain-text password, which is then hashed using the SHA-512 algorithm with a high number of rounds (656,000) to enhance security 🔒. The output is a hashed password in a format compatible with Linux system standards, suitable for use in configuration files for automatic user and password setup. Such a hashed password format is required in Kickstart files for secure and unattended password configuration during system installation 🖥️⚙️. This script simplifies the secure preparation of passwords for installation or system automation tasks.
